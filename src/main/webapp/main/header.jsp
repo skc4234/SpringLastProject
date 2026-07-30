@@ -15,9 +15,7 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="../main/main.do">Home</a></li>
       <li><a href="../goods/list.do">스토어</a></li>
-      <li><a href="#" style="color: red">답변형 게시판</a></li>
-      <li><a href="#" style="color: white">레시피</a></li>
-      <li><a href="#" style="color: white">지도</a></li>
+      <li><a href="#">답변형 게시판</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
