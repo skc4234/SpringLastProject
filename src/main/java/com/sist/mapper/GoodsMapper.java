@@ -29,4 +29,11 @@ public interface GoodsMapper {
 			+ "FROM goods_all "
 			+ "WHERE no=#{no}")
 	public GoodsVO goodsDetailData(int no);
+	
+	/*
+	 * @Select("SELECT no,goods_name,goods_price,goods_poster FROM goods_all " +
+	 * "WHERE goods_name LIKE '%'||#{fd}||'%' " +
+	 * "OFFSET #{start} ROWS FETCH NEXT 12 ROWS ONLY") public List<GoodsVO>
+	 * goodsFindListData();
+	 */
 }
