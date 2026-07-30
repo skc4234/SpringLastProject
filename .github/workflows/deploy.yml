@@ -22,19 +22,19 @@ jobs:
 
       - name: Stop Tomcat
         run: |
-          sudo /home/sist/apache-tomcat-9.0.120/bin/shutdown.sh || true
+          /home/sist/apache-tomcat-9.0.120/bin/shutdown.sh || true
           sleep 3
 
       - name: Remove Old war
         run: |
-          sudo rm -rf /home/sist/apache-tomcat-9.0.120/webapps/SpringLastProject.war
-          sudo rm -rf /home/sist/apache-tomcat-9.0.120/webapps/SpringLastProject
+          rm -rf /home/sist/apache-tomcat-9.0.120/webapps/SpringLastProject.war
+          rm -rf /home/sist/apache-tomcat-9.0.120/webapps/SpringLastProject
 
       - name: Deploy War
         run: |
-          sudo cp target/*.war /home/sist/apache-tomcat-9.0.120/webapps/SpringLastProject.war 
+          cp target/*.war /home/sist/apache-tomcat-9.0.120/webapps/SpringLastProject.war 
       - name: Tomcat Start
         run: |
-          sudo nohup /home/sist/apache-tomcat-9.0.120/bin/startup.sh
+          nohup /home/sist/apache-tomcat-9.0.120/bin/startup.sh
           sleep 5
 
