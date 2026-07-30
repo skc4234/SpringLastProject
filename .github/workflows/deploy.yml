@@ -35,6 +35,6 @@ jobs:
           cp target/*.war /home/sist/apache-tomcat-9.0.120/webapps/SpringLastProject.war 
       - name: Tomcat Start
         run: |
-          RUNNER_TRACKING_ID: "" /home/sist/apache-tomcat-9.0.120/bin/catalina.sh start
+          RUNNER_TRACKING_ID="" /home/sist/apache-tomcat-9.0.120/bin/catalina.sh start
           sleep 5
 
