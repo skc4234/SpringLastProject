@@ -3,6 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<!-- Security -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/datasource/application-datasource.xml
+			/WEB-INF/security/application-security.xml
+		</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -10,7 +21,6 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 				/WEB-INF/config/application-*.xml
-				/WEB-INF/datasource/application-*.xml
 			</param-value>
 		</init-param>
 	</servlet>
@@ -40,4 +50,26 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<!-- 
+		보안(Spring 보안) 적용
+			1. 인증
+			2. 인가(권한)
+			3. 세션관리
+			4. 암호화/복호화
+			5. 로그인/로그아웃 처리
+			6. oauth2 : 소셜 로그인
+			7. 장점: 강력한 보안 ==> 재사용 가능
+			8. 단점: 설정이 복잡하다 ==> SpringBoot 보안
+	 -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 </web-app>
